@@ -62,4 +62,33 @@ public class User {
 		StringBuilder sb = new StringBuilder();
 		return sb.append(name +" "+surname).append("- age:"+age).append(" - salary:"+salary).append(" - title:"+title).toString();
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		User user = (User) obj;
+		return age == user.age && 
+		       Double.compare(user.salary, salary) == 0 && 
+		       isVegetarian == user.isVegetarian && 
+		       startYear == user.startYear && 
+		       name.equals(user.name) && 
+		       surname.equals(user.surname) && 
+		       title == user.title && 
+		       languages.equals(user.languages);
+	}
+
+	@Override
+	public int hashCode() {
+		int result = 17;
+		result = 31 * result + name.hashCode();
+		result = 31 * result + surname.hashCode();
+		result = 31 * result + age;
+		result = 31 * result + Double.hashCode(salary);
+		result = 31 * result + title.hashCode();
+		result = 31 * result + (isVegetarian ? 1 : 0);
+		result = 31 * result + startYear;
+		result = 31 * result + languages.hashCode();
+		return result;
+	}
 }
