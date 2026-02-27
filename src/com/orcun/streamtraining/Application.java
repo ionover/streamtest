@@ -26,7 +26,7 @@ public class Application {
 
         TrainingB2 trainingB2 = new TrainingB2();
         print("B2 V1", trainingB2.getOldestUserV1(userList));
-        print("B2 V2", trainingB2.getOldestUserV111(userList));
+        print("B2 V2", trainingB2.getOldestUserV2(userList));
         System.out.println();
 //
 //		TrainingB3 trainingB3 = new TrainingB3();
