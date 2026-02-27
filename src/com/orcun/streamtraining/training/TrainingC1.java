@@ -28,9 +28,5 @@ public class TrainingC1 {
 		return userMap;
 	}
 	
-	//With stream
-	public Map<Title,Long> countEmployeesOfTitlesV2(List<User> userList) {
-		return userList.stream()
-				.collect(Collectors.groupingBy(User::getTitle,Collectors.counting()));
-	}
+
 }

@@ -25,11 +25,5 @@ public class TrainingC4 {
 		return highestEarningUser;
 	}
 	
-	//With stream
-	public User getUserWhoEarnsHighSalaryAmongUsersV2(List<User> userList) {
-		return userList.stream().filter(
-				user->user.getLanguages().stream()
-				.anyMatch(language->language.equals(Language.ENGILISH)))
-				.max(Comparator.comparing(User::getSalary)).get();
-	}
+
 }

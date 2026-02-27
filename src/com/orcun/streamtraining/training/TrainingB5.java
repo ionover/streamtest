@@ -21,16 +21,5 @@ public class TrainingB5 {
 		}
 		return list;
 	}
-	
-	//With lambda
-	public List<User> getTwoVegeterianUserV2(List<User> userList) {
-		return userList.stream().filter(user->user.isVegetarian()).limit(2)
-				.collect(Collectors.toList());
-	}
-	
-	//With method reference
-	public List<User> getTwoVegeterianUserV3(List<User> userList) {
-		return userList.stream().filter(User::isVegetarian).limit(2)
-				.collect(Collectors.toList());
-	}
+
 }

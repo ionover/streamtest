@@ -18,14 +18,5 @@ public class TrainingB3 {
 		}
 		return count;
 	}
-	
-	//With lambda
-	public long getCountOfVegetarianUsersV2(List<User> userList) {
-		return userList.stream().filter(user->user.isVegetarian()).count();
-	}
-	
-	//With method reference
-	public long getCountOfVegetarianUsersV3(List<User> userList) {
-		return userList.stream().filter(User::isVegetarian).count();
-	}
+
 }

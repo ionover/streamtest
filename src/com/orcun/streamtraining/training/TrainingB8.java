@@ -27,16 +27,4 @@ public class TrainingB8 {
 		});
 		return list;
 	}
-	
-	//With lambda
-	public List<User> getUserStartsInSpecificYearV2(List<User> userList, int year) {
-		return userList.stream().filter(user->user.getStartYear()==year)
-			.sorted((u1,u2)->(int)(u1.getSalary()-u2.getSalary())).collect(Collectors.toList());
-	}
-	
-	//With method reference
-	public List<User> getUserStartsInSpecificYearV3(List<User> userList, int year) {
-		return userList.stream().filter(user->user.getStartYear()==year)
-			.sorted(Comparator.comparing(User::getSalary)).collect(Collectors.toList());
-	}
 }

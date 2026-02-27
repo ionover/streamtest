@@ -27,9 +27,5 @@ public class TrainingC3 {
 		return new ArrayList<>(languageMap.keySet());
 	}
 	
-	//With stream
-	public List<Language> getLanguagesKnownV2(List<User> userList) {
-		return userList.stream().map(User::getLanguages)
-				.flatMap(List::stream).distinct().collect(Collectors.toList());
-	}
+
 }

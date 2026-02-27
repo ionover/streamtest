@@ -17,9 +17,5 @@ public class TrainingB4 {
 		}
 	}
 	
-	//With lambda
-	public void printSoftwareEngineersNameV2(List<User> userList) {
-		userList.stream().filter(user->user.getTitle().equals(Title.SOFTWARE_ENGINEER)).
-			forEach(user->System.out.println(user.getName()));
-	}
+
 }

@@ -16,9 +16,5 @@ public class TrainingB6 {
 		}
 		return null;
 	}
-	
-	//With lambda
-	public User getUsersWhoEarnsMoreV2(List<User> userList, double salary) {
-		return userList.stream().filter(user->user.getSalary()>salary).findFirst().get();
-	}
+
 }

@@ -31,10 +31,5 @@ public class TrainingB9 {
 		return userMap;
 	}
 	
-	//With lambda / method reference
-	public Map<Boolean,List<User>> groupEngineersByIsVegetarianV2(List<User> userList) {
-		return userList.stream()
-				.filter(user->user.getTitle().equals(Title.SOFTWARE_ENGINEER))
-				.collect(Collectors.groupingBy(User::isVegetarian));
-	}
+
 }

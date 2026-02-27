@@ -30,14 +30,5 @@ public class TrainingC2 {
 		return userMap;
 	}
 	
-	//With stream
-	public Map<Title,Double> findMaxSalaryOfEveryTitleV2(List<User> userList) {
-		return (Map<Title,Double>) userList.stream()
-				.collect(Collectors.groupingBy(User::getTitle,
-						Collectors.collectingAndThen(
-								Collectors.maxBy(Comparator.comparingDouble(User::getSalary)),
-								user->user.get().getSalary())
-								));
 
-	}
 }

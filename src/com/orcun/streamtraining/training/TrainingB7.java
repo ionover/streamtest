@@ -22,16 +22,5 @@ public class TrainingB7 {
 		while(it.hasNext())
 			System.out.println(it.next());
 	}
-	
-	//With lambda
-	public void getDistinctUserNameWhoEarnsMoreV2(List<User> userList, double salary) {
-		userList.stream().filter(user->user.getSalary()>salary)
-			.map(user->user.getName()).distinct().forEach(name->System.out.println(name));
-	}
-	
-	//With method reference
-	public void getDistinctUserNameWhoEarnsMoreV3(List<User> userList, double salary) {
-		userList.stream().filter(user->user.getSalary()>salary)
-			.map(User::getName).distinct().forEach(System.out::println);
-	}
+
 }
