@@ -32,7 +32,10 @@ public class TrainingB8 {
 
 	//TODO: Найти пользователей начавших работу в заданный год и отсортировать по зарплате (используйте filter + sorted + collect(toList))
 	public List<User> getUserStartsInSpecificYearV2(List<User> userList, int year) {
-		return new ArrayList<>(); // Replace with your stream implementation
+		return userList.stream()
+				.filter(user -> user.getStartYear()==year)
+				.sorted(Comparator.comparingDouble(User::getSalary))
+				.collect(Collectors.toList());
 	}
 
 	public static void main(String[] args) {

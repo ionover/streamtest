@@ -2,10 +2,13 @@ package com.orcun.streamtraining.training;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.orcun.streamtraining.domain.User;
 import com.orcun.streamtraining.util.StreamConstans.Language;
 import com.orcun.streamtraining.util.StreamConstans.Title;
+
+import static com.orcun.streamtraining.util.StreamConstans.Title.SOFTWARE_ENGINEER;
 
 /*
  * Get all users name who are software engineers
@@ -15,7 +18,7 @@ public class TrainingB4 {
 	public List<String> getSoftwareEngineersNameV1(List<User> userList) {
 		List<String> names = new ArrayList<>();
 		for(User user:userList) {
-			if(user.getTitle().equals(Title.SOFTWARE_ENGINEER))
+			if(user.getTitle().equals(SOFTWARE_ENGINEER))
 				names.add(user.getName());
 		}
 		return names;
@@ -23,7 +26,10 @@ public class TrainingB4 {
 
 	//TODO: Получить имена всех software engineers (используйте filter по Title + map для getName + collect(toList))
 	public List<String> getSoftwareEngineersNameV2(List<User> userList) {
-		return new ArrayList<>(); // Replace with your stream implementation
+		return userList.stream()
+				.filter(user -> user.getTitle() == SOFTWARE_ENGINEER)
+				.map(User::getName)
+				.toList();
 	}
 
 	public static void main(String[] args) {
@@ -45,14 +51,14 @@ public class TrainingB4 {
 
 	private static List<User> createTestData() {
 		List<User> userList = new ArrayList<>();
-		userList.add(new User("Jane", "Lawrence", 21, 5600, Title.SOFTWARE_ENGINEER, true, 2011, new Language[]{Language.ENGILISH, Language.GERMAN}));
+		userList.add(new User("Jane", "Lawrence", 21, 5600, SOFTWARE_ENGINEER, true, 2011, new Language[]{Language.ENGILISH, Language.GERMAN}));
 		userList.add(new User("Kate", "Winston", 23, 6560, Title.ACCOUNTED, false, 2012, new Language[]{Language.ENGILISH, Language.TURKISH}));
 		userList.add(new User("John", "Gordan", 25, 3500, Title.SECURTY, true, 2013, new Language[]{Language.ENGILISH}));
 		userList.add(new User("Kate", "Marvel", 29, 8000, Title.POD_LEADER, false, 2011, new Language[]{Language.GERMAN}));
 		userList.add(new User("Jane", "Marvel", 32, 8000, Title.PROJECT_LEADER, true, 2010, new Language[]{Language.TURKISH}));
-		userList.add(new User("Visnu", "Sarej", 22, 4000, Title.SOFTWARE_ENGINEER, false, 2008, new Language[]{Language.GERMAN}));
-		userList.add(new User("Mike", "Denis", 21, 3500, Title.SOFTWARE_ENGINEER, true, 2011, new Language[]{Language.ENGILISH}));
-		userList.add(new User("Rajess", "Visnu", 22, 4000, Title.SOFTWARE_ENGINEER, true, 2009, new Language[]{Language.ENGILISH}));
+		userList.add(new User("Visnu", "Sarej", 22, 4000, SOFTWARE_ENGINEER, false, 2008, new Language[]{Language.GERMAN}));
+		userList.add(new User("Mike", "Denis", 21, 3500, SOFTWARE_ENGINEER, true, 2011, new Language[]{Language.ENGILISH}));
+		userList.add(new User("Rajess", "Visnu", 22, 4000, SOFTWARE_ENGINEER, true, 2009, new Language[]{Language.ENGILISH}));
 		return userList;
 	}
 }

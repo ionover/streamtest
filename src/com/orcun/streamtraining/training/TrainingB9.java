@@ -1,9 +1,6 @@
 package com.orcun.streamtraining.training;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.orcun.streamtraining.domain.User;
@@ -34,7 +31,9 @@ public class TrainingB9 {
 
 	//TODO: Сгруппировать software engineers по вегетарианству (используйте filter по Title + collect(Collectors.groupingBy по isVegetarian))
 	public Map<Boolean,List<User>> groupEngineersByIsVegetarianV2(List<User> userList) {
-		return new HashMap<>(); // Replace with your stream implementation
+		return userList.stream()
+				.filter(user -> user.getTitle() == Title.SOFTWARE_ENGINEER)
+				.collect(Collectors.groupingBy(User::isVegetarian));
 	}
 
 	public static void main(String[] args) {

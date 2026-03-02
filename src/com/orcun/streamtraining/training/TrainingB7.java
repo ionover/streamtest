@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.orcun.streamtraining.domain.User;
 import com.orcun.streamtraining.util.StreamConstans.Language;
@@ -28,7 +29,10 @@ public class TrainingB7 {
 
 	//TODO: Получить уникальные имена пользователей с зарплатой больше заданной (используйте filter + map + collect(toSet))
 	public Set<String> getDistinctUserNameWhoEarnsMoreV2(List<User> userList, double salary) {
-		return new HashSet<>(); // Replace with your stream implementation
+		return userList.stream()
+				.filter(user -> user.getSalary() > salary)
+				.map(User::getName)
+				.collect(Collectors.toSet());
 	}
 
 	public static void main(String[] args) {

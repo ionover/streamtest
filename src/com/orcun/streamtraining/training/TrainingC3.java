@@ -30,7 +30,10 @@ public class TrainingC3 {
 
 	//TODO: Получить список уникальных языков известных пользователям (используйте flatMap для развертывания списков языков + distinct + collect(toList))
 	public List<Language> getLanguagesKnownV2(List<User> userList) {
-		return new ArrayList<>(); // Replace with your stream implementation
+		return userList.stream()
+				.flatMap(user -> user.getLanguages().stream())
+				.distinct()
+				.toList();
 	}
 
 	public static void main(String[] args) {
