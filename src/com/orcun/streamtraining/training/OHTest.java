@@ -7,10 +7,10 @@ import java.util.stream.Stream;
 
 /**
  * 🎯 ФИНАЛЬНЫЙ ТЕСТ НАВЫКОВ JAVA STREAMS
- * 
+ * <p>
  * 10 задач для проверки ваших знаний после основного тренинга.
  * Все задачи должны быть решены для прохождения теста!
- * 
+ * <p>
  * Запуск: java -cp bin com.orcun.streamtraining.training.OHTest
  */
 public class OHTest {
@@ -22,7 +22,9 @@ public class OHTest {
     public int sumOfSquaresOfEvenNumbers(List<Integer> numbers) {
         return numbers.stream()
                 .filter(number -> number % 2 == 0)
-                .reduce(0,(past, newi) -> past + newi*newi);
+                .reduce(0, (past, newi) -> past + newi * newi);
+
+
     }
 
     // Эталонное решение
@@ -339,7 +341,7 @@ public class OHTest {
         System.out.println("════════════════════════════════════════════════════════════");
         System.out.println("  📊 РЕЗУЛЬТАТ: " + passed + " / " + total);
         System.out.println("════════════════════════════════════════════════════════════");
-        
+
         if (passed == total) {
             System.out.println();
             System.out.println("  🎉🎉🎉 ПОЗДРАВЛЯЕМ! ВЫ МАСТЕР JAVA STREAMS! 🎉🎉🎉");
