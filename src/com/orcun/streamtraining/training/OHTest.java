@@ -20,7 +20,9 @@ public class OHTest {
     // ============================================================
     //TODO: Найти сумму квадратов всех четных чисел в списке (используйте filter + mapToInt + sum)
     public int sumOfSquaresOfEvenNumbers(List<Integer> numbers) {
-        return 0; // Ваше решение здесь
+        return numbers.stream()
+                .filter(number -> number % 2 == 0)
+                .reduce(0,(past, newi) -> past + newi*newi);
     }
 
     // Эталонное решение
