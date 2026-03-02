@@ -24,7 +24,7 @@ public class TrainingB3 {
 
 	//TODO: Посчитать количество вегетарианцев (используйте filter + count)
 	public long getCountOfVegetarianUsersV2(List<User> userList) {
-		return 0; // Replace with your stream implementation
+		return userList.stream().filter(User::isVegetarian).count();
 	}
 
 	public static void main(String[] args) {

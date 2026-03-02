@@ -22,7 +22,8 @@ public class TrainingB6 {
 
 	//TODO: Найти любого пользователя с зарплатой больше заданной (используйте filter + findFirst + orElse)
 	public User getUsersWhoEarnsMoreV2(List<User> userList, double salary) {
-		return null; // Replace with your stream implementation
+		return userList.stream()
+				.filter(user -> user.getSalary() > salary).findFirst().orElse(null);
 	}
 
 	public static void main(String[] args) {

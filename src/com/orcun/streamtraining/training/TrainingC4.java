@@ -3,6 +3,7 @@ package com.orcun.streamtraining.training;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.orcun.streamtraining.domain.User;
 import com.orcun.streamtraining.util.StreamConstans.Language;
@@ -29,7 +30,9 @@ public class TrainingC4 {
 
 	//TODO: Найти пользователя знающего английский с максимальной зарплатой (используйте filter по языкам + max по зарплате + orElse)
 	public User getUserWhoEarnsHighSalaryAmongUsersV2(List<User> userList) {
-		return null; // Replace with your stream implementation
+		return userList.stream()
+				.filter(user -> user.getLanguages().contains(Language.ENGILISH))
+				.max(Comparator.comparing(User::getSalary)).orElse(null);
 	}
 
 	public static void main(String[] args) {

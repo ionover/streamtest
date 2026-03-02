@@ -26,7 +26,10 @@ public class TrainingB5 {
 
 	//TODO: Получить первых двух вегетарианцев (используйте filter + limit(2) + collect(toList))
 	public List<User> getTwoVegeterianUserV2(List<User> userList) {
-		return new ArrayList<>(); // Replace with your stream implementation
+		return userList.stream()
+				.filter(User::isVegetarian)
+				.limit(2)
+				.toList();
 	}
 
 	public static void main(String[] args) {
