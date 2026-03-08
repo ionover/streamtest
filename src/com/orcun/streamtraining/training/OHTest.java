@@ -40,7 +40,10 @@ public class OHTest {
     // ============================================================
     //TODO: Найти самое длинное слово в списке (используйте max + Comparator.comparingInt + orElse)
     public String findLongestWord(List<String> words) {
-        return null; // Ваше решение здесь
+        return words.stream()
+                .sorted(Comparator.comparingInt(String::length).reversed())
+                .limit(1)
+                .collect(Collectors.joining());
     }
 
     // Эталонное решение
@@ -55,7 +58,8 @@ public class OHTest {
     // ============================================================
     //TODO: Сгруппировать слова по их длине (используйте collect + Collectors.groupingBy)
     public Map<Integer, List<String>> groupWordsByLength(List<String> words) {
-        return new HashMap<>(); // Ваше решение здесь
+        return words.stream()
+                .collect(Collectors.groupingBy(String::length, Collectors.toList()));
     }
 
     // Эталонное решение
