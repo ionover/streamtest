@@ -73,7 +73,10 @@ public class OHTest {
     // ============================================================
     //TODO: Получить множество всех уникальных символов из всех строк (используйте flatMapToInt + distinct + collect)
     public Set<Character> getAllUniqueCharacters(List<String> words) {
-        return new HashSet<>(); // Ваше решение здесь
+        return words.stream()
+                .flatMapToInt(String::chars)
+                .mapToObj(c->(char) c)
+                .collect(Collectors.toSet());
     }
 
     // Эталонное решение
